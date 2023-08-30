@@ -1,0 +1,13 @@
+<div class="min-h-full">
+  {{> views/partials/header }}
+
+
+  <h1>{{Title}}</h1>
+
+  <button class="bg-blue px-4" hx-get="/layout" hx-swap="outerHTML">
+    Click Me
+  </button>
+
+
+  {{> views/partials/footer }}
+</div>
