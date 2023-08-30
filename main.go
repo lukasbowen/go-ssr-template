@@ -3,6 +3,8 @@ package main
 import (
   "fmt"
   "github.com/gofiber/fiber/v2"
+  "github.com/gofiber/fiber/v2/middleware/csrf"
+  "github.com/gofiber/fiber/v2/middleware/logger"
   "github.com/gofiber/fiber/v2/middleware/recover"
   "github.com/gofiber/template/mustache/v2"
   "github.com/lukasbowen/go-ssr-template/handlers"
@@ -24,6 +26,8 @@ func main() {
     },
   })
   app.Use(recover.New())
+  app.Use(logger.New())
+  app.Use(csrf.New())
   app.Static("/static", "./static")
 
   handlers.AuthRoutes(app)

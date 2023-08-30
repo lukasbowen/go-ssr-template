@@ -36,7 +36,7 @@ replace_module_name() {
     fi
 
     echo "You entered: $new_module_name"
-    echo "Are you sure you want to replace 'CalendarApp.com/m' with '$new_module_name'? (y/n):"
+    echo "Are you sure you want to replace 'github.com/lukasbowen/go-ssr-template' with '$new_module_name'? (y/n):"
     read confirmation
 
     if [[ "$confirmation" != "y" && "$confirmation" != "Y" ]]; then
@@ -46,7 +46,7 @@ replace_module_name() {
 
     # Escape the delimiter in the module name and use it as the delimiter for sed
     escaped_module_name=$(echo "$new_module_name" | sed 's/[\/&]/\\&/g')
-    find . -type f -exec sed -i "s|CalendarApp\.com/m|$escaped_module_name|g" {} +
+    find . -type f -exec sed -i "s|github\.com/lukasbowen/go-ssr-template|$escaped_module_name|g" {} +
 
     echo "Module name replaced in all files."
 }
