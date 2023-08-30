@@ -27,7 +27,9 @@ func main() {
   })
   app.Use(recover.New())
   app.Use(logger.New())
-  app.Use(csrf.New())
+  app.Use(csrf.New(csrf.Config{
+    KeyLookup: "cookie:csrf_",
+  }))
   app.Static("/static", "./static")
 
   handlers.AuthRoutes(app)

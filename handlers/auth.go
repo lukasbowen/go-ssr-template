@@ -28,7 +28,7 @@ func AuthRoutes(app *fiber.App) {
   }).Name("SignUp")
 
   // POST
-  app.Post("/login", func(ctx *fiber.Ctx) error {
+  app.Post("/api/login", func(ctx *fiber.Ctx) error {
     var loginRequest loginRequest
     err := ctx.BodyParser(loginRequest)
 
